@@ -13,7 +13,7 @@ public class SavingsAccount extends Account {
 		double temp = 0;
 		for ( int i=0; i < Account.getMonth(); i++) {
 			 temp = getMoney();
-			temp = temp + this.interest;
+			temp = temp + calculateInterest();
 			}
 		
 		return temp;
@@ -27,8 +27,7 @@ public class SavingsAccount extends Account {
 		
 		public double calculateInterest() {
 		double interest = getMoney() * rate;
-		this.interest = interest;
-		return this.interest;
+		return interest;
 		}
 	}
 
