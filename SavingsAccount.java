@@ -4,22 +4,31 @@ public class SavingsAccount extends Account {
 	private static double rate = 0.05;
 	private double interest;
 	
-	public SavingsAccount(double money, int accountNumber, double interest ) {
+	public SavingsAccount(double money, int accountNumber ) {
 		super(money, accountNumber);
-	this.interest = interest;
+	
 	}
 	
-	public double getInterest() {
-		return interest;
+	public double incrementInterest() {
+		double temp = 0;
+		for ( int i=0; i < Account.getMonth(); i++) {
+			 temp = getMoney();
+			temp = temp + this.interest;
+			}
 		
+		return temp;
 	}
+		
 	
-	public void setRate(int Rate) {
+	
+	public void setRate(double Rate) {
 		this.rate = rate;
 	}
 		
-		public void calculateInterest() {
-		interest = getMoney() * rate;	
+		public double calculateInterest() {
+		double interest = getMoney() * rate;
+		this.interest = interest;
+		return this.interest;
 		}
 	}
 
